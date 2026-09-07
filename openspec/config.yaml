@@ -1,0 +1,6 @@
+# SDD artifact store declaration for the native gentle-ai dispatcher
+# (gentle-ai sdd-status / sdd-continue). The workspace declares its store here:
+# `sdd.artifact_store` selects the resolver and reports it as artifactStore.
+# engram means SDD artifacts live in Engram, not in an openspec/ artifact tree.
+sdd:
+  artifact_store: engram
