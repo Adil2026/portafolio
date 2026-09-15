@@ -14,7 +14,7 @@ const dictionaries: Record<Language, Messages> = {
   en: enMessages,
 }
 
-/** Type of a valid dotted key path into `Dictionary`, e.g. `'hero.title'`. */
+/** Type of a valid dotted key path into `Dictionary`, e.g. `'hero.summary'`. */
 type DictionaryKey<T extends Record<string, unknown>> = {
   [K in keyof T & string]: T[K] extends Record<string, unknown>
     ? `${K}.${DictionaryKey<T[K]>}` | `${K}`
@@ -43,7 +43,7 @@ function readStoredLanguage(): Language {
 /**
  * Resolves a dotted key against a dictionary.
  *
- * `getValue(dict, 'hero.title')` returns the string at `dict.hero.title`.
+ * `getValue(dict, 'hero.summary')` returns the string at `dict.hero.summary`.
  * The generic keeps the resolved value typed as `string`.
  */
 function getValue<T extends Record<string, unknown>>(dict: T, path: string): string {

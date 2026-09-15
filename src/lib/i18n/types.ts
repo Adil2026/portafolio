@@ -26,8 +26,8 @@ export type Dictionary = {
     home: string
   }
   hero: {
-    title: string
-    subtitle: string
+    summary: string
+    cta: string
   }
   projects: {
     title: string
@@ -39,7 +39,7 @@ export type Dictionary = {
     title: string
   }
   footer: {
-    rights: string
+    rightsReserved: string
   }
 }
 
