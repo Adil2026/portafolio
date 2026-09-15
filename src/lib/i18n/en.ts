@@ -14,6 +14,8 @@ export const messages: Messages = {
     // TODO(content): replace placeholder headline with CV-backed copy
     title: 'Data Engineering Portfolio',
     subtitle: 'Placeholder intro — content lands in a later change.',
+    cta: 'View CV',
+    viewWork: 'View Projects',
   },
   projects: {
     title: 'Projects',

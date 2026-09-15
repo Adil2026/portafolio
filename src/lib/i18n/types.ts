@@ -28,6 +28,8 @@ export type Dictionary = {
   hero: {
     title: string
     subtitle: string
+    cta: string
+    viewWork: string
   }
   projects: {
     title: string
