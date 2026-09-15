@@ -44,13 +44,16 @@ Chain strategy: stacked-to-main
 
 ## Phase 2: Core Implementation — Section Components
 
-- [ ] 2.1 Create `src/components/sections/Hero.tsx` using Section, Container, Heading, Link, CVLink; render personal data + i18n
-- [ ] 2.2 Create `src/components/sections/Projects.tsx` using Section, Container, Card; map Localized<Project>[] to grid (1/2/3 cols responsive)
-- [ ] 2.3 Create `src/components/sections/Skills.tsx` using Section, Container, Card; group skills by category, render level badges
-- [ ] 2.4 Create `src/components/sections/Experience.tsx` using Section, Container, Card; timeline layout, reverse-chron order
-- [ ] 2.5 Create `src/components/sections/Footer.tsx` using Section, Container, Link, CVLink; copyright year + name from data, contacts, socials
-- [ ] 2.6 Update `src/App.tsx` to compose Hero, Projects, Skills, Experience, Footer; remove inline section markup
-- [ ] 2.7 Write unit tests for sections: data rendering, i18n switching, responsive classes, empty states
+- [x] 2.1 Create `src/components/sections/Hero.tsx` using Section, Container, Heading, Link, CVLink; render personal data + i18n
+- [x] 2.2 Create `src/components/sections/Projects.tsx` using Section, Container, Card; map Localized<Project>[] to grid (1/2/3 cols responsive)
+- [x] 2.3 Create `src/components/sections/Skills.tsx` using Section, Container, Card; group skills by category, render level badges
+- [x] 2.4 Create `src/components/sections/Experience.tsx` using Section, Container, Card; timeline layout, reverse-chron order
+- [x] 2.5 Create `src/components/sections/Footer.tsx` using Section, Container, Heading, CVLink; copyright year + name from data, contacts, socials
+- [x] 2.6 Update `src/App.tsx` to compose Hero, Projects, Skills, Experience, Footer; remove inline section markup
+- [x] 2.7 Write unit tests for sections: data rendering, i18n switching, responsive classes, empty states
+- [x] 2.8 Add i18n keys for hero.cta, hero.viewWork; update Personal type with email, phone, socials
+
+**✅ Phase 2 complete — PR #X created: (pending push)**
 
 ## Phase 3: Content Integration & Accessibility
 

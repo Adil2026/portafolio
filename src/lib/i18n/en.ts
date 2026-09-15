@@ -1,9 +1,8 @@
 /**
  * English message dictionary.
  *
- * CV-backed identity copy (identity change, constitution §5).
- * Keys mirror `Dictionary` exactly. The hero summary is a validation-pending
- * draft and can be swapped in one line pre-merge.
+ * Placeholder copy only — real content lands in a later change
+ * (TODO(content), constitution §5). Keys mirror `Languages` exactly.
  */
 import type { Messages } from './types'
 
@@ -12,9 +11,11 @@ export const messages: Messages = {
     home: 'Home',
   },
   hero: {
-    summary:
-      'Systems Engineer with 7+ years in software, databases, and information systems; advanced SQL, data modeling, ETL and Python (pandas), focused on growing as a Data Engineer.',
+    // TODO(content): replace placeholder headline with CV-backed copy
+    title: 'Data Engineering Portfolio',
+    subtitle: 'Placeholder intro — content lands in a later change.',
     cta: 'View CV',
+    viewWork: 'View Projects',
   },
   projects: {
     title: 'Projects',
@@ -26,6 +27,7 @@ export const messages: Messages = {
     title: 'Experience',
   },
   footer: {
-    rightsReserved: 'All rights reserved',
+    // TODO(content): full name substituted at runtime (see App footer)
+    rights: '© {year} Adilson Vargas Añez',
   },
 }
