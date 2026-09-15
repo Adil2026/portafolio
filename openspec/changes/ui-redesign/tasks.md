@@ -36,6 +36,11 @@ Chain strategy: stacked-to-main
 - [x] 1.8 Create `src/components/ui/link.tsx` with underline-offset, hover:underline, focus ring, asChild support
 - [x] 1.9 Write unit tests for primitives: variant output, Slot behavior, focus styles, data-slot presence
 - [x] 1.10 Token compliance test: grep for arbitrary values (e.g., `p-[`, `text-[#`, `bg-[#`) in ui/ — must return zero matches
+- [x] 1.11 Add @utility max-w-container-* utilities for token-compliant max-width
+- [x] 1.12 axe-core integration: a11y tests for all primitives + full App
+- [x] 1.13 WCAG AA contrast validation: compute ratios from OKLCH tokens
+
+**✅ Phase 1 complete — PR #4 created: https://github.com/Adil2026/portafolio/pull/4**
 
 ## Phase 2: Core Implementation — Section Components
 
