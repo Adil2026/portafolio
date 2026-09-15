@@ -4,11 +4,37 @@ import { personal } from './personal'
 import { projects } from './projects'
 import { skills } from './skills'
 
+const CV_URL =
+  'https://drive.google.com/file/d/1jg10ogYu65Dc8WsecEroW7XprjF82wR9/view?usp=drive_link'
+
 describe('data modules — personal', () => {
-  it('exports placeholder personal metadata with the expected fields', () => {
+  it('exports CV-backed personal metadata with the expected facts', () => {
     expect(personal.name).toBe('Adilson Vargas Añez')
-    expect(personal.roleLine).toBe('Data Engineering')
-    expect(personal.cvUrl).toBe('https://example.com/cv') // TODO(content) placeholder
+    expect(personal.roleLine).toBe(
+      'Analista de Datos | Ingeniero de Datos Junior | Ingeniero de Sistemas',
+    )
+    expect(personal.location).toBe('Santa Cruz de la Sierra, Bolivia')
+    expect(personal.email).toBe('adilsonva2016@gmail.com')
+    expect(personal.phone).toBe('+591 70917928')
+    expect(personal.socials).toEqual([
+      {
+        network: 'linkedin',
+        href: 'https://www.linkedin.com/in/adilson-vargas-añez',
+        label: 'LinkedIn',
+      },
+      {
+        network: 'github',
+        href: 'https://github.com/Adil2026',
+        label: 'GitHub',
+      },
+    ])
+    expect(personal.cvUrl).toBe(CV_URL)
+  })
+
+  it('rejects the example.com/cv placeholder URL', () => {
+    expect(personal.cvUrl).not.toBe('https://example.com/cv')
+    expect(personal.cvUrl).not.toContain('example.com')
+    expect(personal.cvUrl.startsWith('https://drive.google.com/')).toBe(true)
   })
 })
 
