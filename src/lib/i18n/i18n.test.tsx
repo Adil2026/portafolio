@@ -11,7 +11,7 @@ function Probe() {
   return (
     <div>
       <span data-testid="language">{language}</span>
-      <span data-testid="hero-title">{t('hero.title')}</span>
+      <span data-testid="hero-summary">{t('hero.summary')}</span>
       <button type="button" onClick={() => setLanguage('es')}>
         to-es
       </button>
@@ -38,6 +38,28 @@ describe('i18n dictionaries', () => {
     expect(esKeys).toEqual(enKeys)
     expect(esKeys.length).toBeGreaterThan(0)
   })
+
+  it('carries identity keys with parity and no retired interpolation keys', () => {
+    const keysOf = (value: unknown, prefix = ''): string[] =>
+      Object.keys(value as Record<string, unknown>).flatMap((key) => {
+        const child = (value as Record<string, unknown>)[key]
+        const path = prefix ? `${prefix}.${key}` : key
+        return child && typeof child === 'object' && !Array.isArray(child)
+          ? keysOf(child, path)
+          : [path]
+      })
+
+    const esKeys = keysOf(esMessages)
+    expect(esKeys).toContain('hero.summary')
+    expect(esKeys).toContain('hero.cta')
+    expect(esKeys).toContain('footer.rightsReserved')
+    expect(esKeys).not.toContain('hero.title')
+    expect(esKeys).not.toContain('hero.subtitle')
+    expect(esKeys).not.toContain('footer.rights')
+    expect(esMessages.footer.rightsReserved).not.toContain('{year}')
+    expect(enMessages.footer.rightsReserved).not.toContain('{year}')
+    expect(esMessages.hero.summary).not.toBe(enMessages.hero.summary)
+  })
 })
 
 describe('LanguageProvider', () => {
@@ -54,7 +76,7 @@ describe('LanguageProvider', () => {
     )
     expect(DEFAULT_LANGUAGE).toBe('en')
     expect(screen.getByTestId('language')).toHaveTextContent('en')
-    expect(screen.getByTestId('hero-title')).toHaveTextContent('Data Engineering Portfolio')
+    expect(screen.getByTestId('hero-summary')).toHaveTextContent(enMessages.hero.summary)
   })
 
   it('reads a persisted locale from localStorage on mount', () => {
@@ -65,7 +87,7 @@ describe('LanguageProvider', () => {
       </LanguageProvider>,
     )
     expect(screen.getByTestId('language')).toHaveTextContent('es')
-    expect(screen.getByTestId('hero-title')).toHaveTextContent('Portafolio de Ingeniería de Datos')
+    expect(screen.getByTestId('hero-summary')).toHaveTextContent(esMessages.hero.summary)
   })
 
   it('switches locale, re-renders copy, and persists the choice', () => {
@@ -78,12 +100,12 @@ describe('LanguageProvider', () => {
     expect(screen.getByTestId('language')).toHaveTextContent('en')
     fireEvent.click(screen.getByRole('button', { name: 'to-es' }))
     expect(screen.getByTestId('language')).toHaveTextContent('es')
-    expect(screen.getByTestId('hero-title')).toHaveTextContent('Portafolio de Ingeniería de Datos')
+    expect(screen.getByTestId('hero-summary')).toHaveTextContent(esMessages.hero.summary)
     expect(window.localStorage.getItem('lang')).toBe('es')
 
     fireEvent.click(screen.getByRole('button', { name: 'to-en' }))
     expect(screen.getByTestId('language')).toHaveTextContent('en')
-    expect(screen.getByTestId('hero-title')).toHaveTextContent('Data Engineering Portfolio')
+    expect(screen.getByTestId('hero-summary')).toHaveTextContent(enMessages.hero.summary)
     expect(window.localStorage.getItem('lang')).toBe('en')
   })
 

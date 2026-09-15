@@ -1,8 +1,8 @@
 /**
  * Spanish message dictionary.
  *
- * Placeholder copy only — real content lands in a later change
- * (TODO(content), constitution §5). Keys mirror `Languages` exactly.
+ * CV-backed identity copy (identity change, constitution §5).
+ * Keys mirror `Dictionary` exactly.
  */
 import type { Messages } from './types'
 
@@ -11,9 +11,9 @@ export const messages: Messages = {
     home: 'Inicio',
   },
   hero: {
-    // TODO(content): replace placeholder headline with CV-backed copy
-    title: 'Portafolio de Ingeniería de Datos',
-    subtitle: 'Introducción provisional — el contenido llega en un cambio posterior.',
+    summary:
+      'Ingeniero de Sistemas con más de 7 años en software, bases de datos y sistemas de información; SQL avanzado, modelado de datos, ETL y Python (pandas), enfocado en desarrollarse como Ingeniero de Datos.',
+    cta: 'Ver CV',
   },
   projects: {
     title: 'Proyectos',
@@ -25,7 +25,6 @@ export const messages: Messages = {
     title: 'Experiencia',
   },
   footer: {
-    // TODO(content): full name substituted at runtime (see App footer)
-    rights: '© {year} Adilson Vargas Añez',
+    rightsReserved: 'Todos los derechos reservados',
   },
 }
