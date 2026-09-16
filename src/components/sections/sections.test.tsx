@@ -292,8 +292,9 @@ describe('Sections Integration', () => {
         <Footer />
       </div>
     );
-    // All 5 sections should be present
+    // 4 sections (Hero, Projects, Skills, Experience) + 1 footer landmark
     const regions = screen.getAllByRole('region');
-    expect(regions).toHaveLength(5);
+    expect(regions).toHaveLength(4);
+    expect(screen.getByRole('contentinfo')).toBeInTheDocument();
   });
 });

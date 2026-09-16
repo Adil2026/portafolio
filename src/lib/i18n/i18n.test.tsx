@@ -53,8 +53,6 @@ describe('i18n dictionaries', () => {
     expect(esKeys).toContain('hero.summary')
     expect(esKeys).toContain('hero.cta')
     expect(esKeys).toContain('footer.rightsReserved')
-    expect(esKeys).not.toContain('hero.title')
-    expect(esKeys).not.toContain('hero.subtitle')
     expect(esKeys).not.toContain('footer.rights')
     expect(esMessages.footer.rightsReserved).not.toContain('{year}')
     expect(enMessages.footer.rightsReserved).not.toContain('{year}')

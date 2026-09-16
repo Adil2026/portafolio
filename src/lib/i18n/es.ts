@@ -14,6 +14,7 @@ export const messages: Messages = {
     // TODO(content): replace placeholder headline with CV-backed copy
     title: 'Portafolio de Ingeniería de Datos',
     subtitle: 'Introducción provisional — el contenido llega en un cambio posterior.',
+    summary: 'Especialista en ingeniería de datos, analítica y software. Construyo pipelines robustos, dashboards accionables y sistemas mantenibles.',
     cta: 'Ver CV',
     viewWork: 'Ver Proyectos',
   },
@@ -27,7 +28,6 @@ export const messages: Messages = {
     title: 'Experiencia',
   },
   footer: {
-    // TODO(content): full name substituted at runtime (see App footer)
-    rights: '© {year} Adilson Vargas Añez',
+    rightsReserved: 'Todos los derechos reservados.',
   },
 }

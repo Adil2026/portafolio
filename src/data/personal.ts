@@ -8,6 +8,8 @@ export interface Personal {
   name: string
   /** One-line professional tagline (primary narrative). */
   roleLine: string
+  /** Location (city, country). */
+  location: string
   /** Direct URL to the externally-hosted CV PDF. */
   cvUrl: string
   /** Contact email. */
@@ -22,16 +24,16 @@ export interface Personal {
   }>
 }
 
-// TODO(content): replace with real CV-backed personal metadata (constitution §5)
+// CV-backed personal metadata (constitution §5, §6)
 export const personal: Personal = {
   name: 'Adilson Vargas Añez',
-  roleLine: 'Data Engineering',
-  // TODO(content): real external host direct link (Drive/Dropbox/OneDrive)
-  cvUrl: 'https://example.com/cv',
-  email: 'adilson.vargas@email.com',
-  phone: '+591 7000 0000',
+  roleLine: 'Analista de Datos | Ingeniero de Datos Junior | Ingeniero de Sistemas',
+  location: 'Santa Cruz de la Sierra, Bolivia',
+  cvUrl: 'https://drive.google.com/file/d/1jg10ogYu65Dc8WsecEroW7XprjF82wR9/view?usp=drive_link',
+  email: 'adilsonva2016@gmail.com',
+  phone: '+591 70917928',
   socials: [
-    { network: 'github', label: 'GitHub', href: 'https://github.com/adil2026' },
-    { network: 'linkedin', label: 'LinkedIn', href: 'https://linkedin.com/in/adilsonvargas' },
+    { network: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/adilson-vargas-añez' },
+    { network: 'github', label: 'GitHub', href: 'https://github.com/Adil2026' },
   ],
 }

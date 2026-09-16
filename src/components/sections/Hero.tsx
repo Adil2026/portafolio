@@ -26,17 +26,20 @@ export function Hero() {
             {personal.roleLine}
           </p>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+            {t('hero.summary')}
+          </p>
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
             {t('hero.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <CVLink
               label={t('hero.cta')}
-              className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 min-w-[160px]"
+              className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 min-w-button-sm"
             />
             <Link
               href="#projects"
               underline="hover"
-              className="inline-flex items-center justify-center rounded-lg border border-border bg-transparent px-6 py-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 min-w-[160px]"
+              className="inline-flex items-center justify-center rounded-lg border border-border bg-transparent px-6 py-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 min-w-button-sm"
             >
               {t('hero.viewWork')}
             </Link>

@@ -93,6 +93,9 @@
   --container-lg: 1024px;
   --container-xl: 1280px;
   --container-full: 100%;
+
+  /* Min-width tokens for UI components */
+  --min-w-button-sm: 160px;
 }
  
 /* Generated max-width utilities from container tokens */
@@ -101,6 +104,9 @@
 @utility max-w-container-lg { max-width: var(--container-lg); }
 @utility max-w-container-xl { max-width: var(--container-xl); }
 @utility max-w-container-full { max-width: var(--container-full); }
+
+/* Generated min-width utilities from min-width tokens */
+@utility min-w-button-sm { min-width: var(--min-w-button-sm); }
  
 /* Dark mode — class strategy via @media (prefers-color-scheme) fallback and .dark class override */
 @media (prefers-color-scheme: dark) {

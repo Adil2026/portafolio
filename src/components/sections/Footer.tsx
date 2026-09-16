@@ -1,4 +1,3 @@
-import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { Heading } from '../ui/Heading';
 import { CVLink } from '../CVLink';
@@ -8,24 +7,27 @@ import { useI18n } from '../../lib/i18n/LanguageContext';
 /**
  * Footer section — copyright, contacts, socials, CV link.
  *
- * Composed from primitives: Section, Container, Heading, Link, CVLink.
+ * Composed from primitives: Container, Heading, Link, CVLink.
  * All data from `personal` + i18n; no hardcoded values.
+ * Renders as semantic <footer> with role="contentinfo".
  */
 export function Footer() {
   const { t } = useI18n();
   const currentYear = new Date().getFullYear();
 
   return (
-    <Section headingId="footer-heading" size="sm" container={false} className="border-t border-border">
+    <footer
+      role="contentinfo"
+      className="border-t border-border"
+      aria-labelledby="footer-heading"
+    >
       <Container size="xl" className="py-8">
         <Heading as="h2" id="footer-heading" className="sr-only">
-          {t('footer.rights')}
+          {t('footer.rightsReserved')}
         </Heading>
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 space-y-4 md:space-y-0">
           <p className="text-sm text-muted-foreground text-center md:text-left">
-            {t('footer.rights')
-              .replace('{year}', String(currentYear))
-              .replace('Adilson Vargas Añez', personal.name)}
+            © {currentYear} {personal.name} — {t('footer.rightsReserved')}
           </p>
 
           <address className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground not-italic">
@@ -53,7 +55,7 @@ export function Footer() {
           </address>
         </div>
       </Container>
-    </Section>
+    </footer>
   );
 }
 

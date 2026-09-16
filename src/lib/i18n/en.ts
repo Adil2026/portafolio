@@ -14,6 +14,7 @@ export const messages: Messages = {
     // TODO(content): replace placeholder headline with CV-backed copy
     title: 'Data Engineering Portfolio',
     subtitle: 'Placeholder intro — content lands in a later change.',
+    summary: 'Data engineering, analytics, and software specialist. Building robust pipelines, actionable dashboards, and maintainable systems.',
     cta: 'View CV',
     viewWork: 'View Projects',
   },
@@ -27,7 +28,6 @@ export const messages: Messages = {
     title: 'Experience',
   },
   footer: {
-    // TODO(content): full name substituted at runtime (see App footer)
-    rights: '© {year} Adilson Vargas Añez',
+    rightsReserved: 'All rights reserved.',
   },
 }

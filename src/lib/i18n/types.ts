@@ -28,6 +28,7 @@ export type Dictionary = {
   hero: {
     title: string
     subtitle: string
+    summary: string
     cta: string
     viewWork: string
   }
@@ -41,7 +42,7 @@ export type Dictionary = {
     title: string
   }
   footer: {
-    rights: string
+    rightsReserved: string
   }
 }
 
