@@ -57,13 +57,16 @@ Chain strategy: stacked-to-main
 
 ## Phase 3: Content Integration & Accessibility
 
-- [ ] 3.1 Replace `src/data/projects.ts` placeholder with CV-backed projects (problem, dataAndContext, stack[], role, outcome, repoUrl?, demoUrl?)
-- [ ] 3.2 Replace `src/data/skills.ts` placeholder with CV-backed skills (name, category, level)
-- [ ] 3.3 Replace `src/data/experience.ts` placeholder with CV-backed experience (role, company, period, highlights[])
-- [ ] 3.4 Extend `src/lib/i18n/types.ts` Dictionary with new keys: projects, skills, experience fields, hero summary/cta, footer
-- [ ] 3.5 Add ES translations in `src/lib/i18n/es.ts` for all new keys
-- [ ] 3.6 Add EN translations in `src/lib/i18n/en.ts` for all new keys
-- [ ] 3.7 TypeScript compile check: `npm run typecheck` — must pass with zero missing locale keys
+### PR3A — Content Integration (data + i18n) ✅
+- [x] 3.1 Replace `src/data/projects.ts` placeholder with CV-backed projects (problem, dataAndContext, stack[], role, outcome, repoUrl?, demoUrl?)
+- [x] 3.2 Replace `src/data/skills.ts` placeholder with CV-backed skills (name, category, level)
+- [x] 3.3 Replace `src/data/experience.ts` placeholder with CV-backed experience (role, company, period, highlights[])
+- [x] 3.4 Extend `src/lib/i18n/types.ts` Dictionary with new keys: projects, skills, experience fields, hero summary/cta, footer
+- [x] 3.5 Add ES translations in `src/lib/i18n/es.ts` for all new keys
+- [x] 3.6 Add EN translations in `src/lib/i18n/en.ts` for all new keys
+- [x] 3.7 TypeScript compile check: `npm run typecheck` — must pass with zero missing locale keys
+
+### PR3B — Accessibility Polish (pending)
 - [ ] 3.8 Accessibility audit: run axe-core on all components/pages; fix violations (contrast, focus, landmarks, ARIA)
 - [ ] 3.9 Responsive QA: verify at 320px, 768px, 1024px, 1440px; no horizontal overflow, touch targets ≥44px
 - [ ] 3.10 LCP budget check: `npm run build` + preview; ensure no heavy deps, critical CSS inlined
