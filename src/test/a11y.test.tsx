@@ -8,9 +8,18 @@ import { Section } from '../components/ui/Section';
 import { Container } from '../components/ui/Container';
 import { Heading } from '../components/ui/Heading';
 import { Link } from '../components/ui/Link';
+import { Projects } from '../components/sections/Projects';
+import { Skills } from '../components/sections/Skills';
+import { Experience } from '../components/sections/Experience';
+import { Footer } from '../components/sections/Footer';
+import { LanguageProvider } from '../lib/i18n/LanguageContext';
 
 const TestWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div style={{ width: '100%' }}>{children}</div>
+);
+
+const I18nWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <LanguageProvider>{children}</LanguageProvider>
 );
 
 describe('Automated Accessibility (axe-core)', () => {
@@ -51,10 +60,28 @@ describe('Automated Accessibility (axe-core)', () => {
     });
   });
 
+  const sectionComponents = [
+    { name: 'Projects Section', component: () => <Projects /> },
+    { name: 'Skills Section', component: () => <Skills /> },
+    { name: 'Experience Section', component: () => <Experience /> },
+    { name: 'Footer Section', component: () => <Footer /> },
+  ];
+
+  sectionComponents.forEach(({ name, component }) => {
+    it(`${name} should have no axe violations`, async () => {
+      const { container } = render(
+        <I18nWrapper>
+          <TestWrapper>{component()}</TestWrapper>
+        </I18nWrapper>
+      );
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
+  });
+
   it('full App should have no axe violations', async () => {
     const AppModule = await import('../App');
     const App = AppModule.default;
-    const { LanguageProvider } = await import('../lib/i18n/LanguageContext');
     const { container } = render(
       <LanguageProvider>
         <App />
