@@ -4,12 +4,13 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '../ui
 import { Heading } from '../ui/Heading';
 import { experience } from '../../data/experience';
 import { useI18n } from '../../lib/i18n/LanguageContext';
-import type { Experience } from '../../types/content';
+import type { Experience as ExperienceType } from '../../types/content';
 
 /**
  * Experience timeline item.
  */
-function TimelineItem({ item, index, total }: { item: Experience; index: number; total: number }) {
+function TimelineItem({ item, index, total }: { item: ExperienceType; index: number; total: number }) {
+  const { t } = useI18n();
   const isLast = index === total - 1;
 
   return (
@@ -37,6 +38,9 @@ function TimelineItem({ item, index, total }: { item: Experience; index: number;
             </CardDescription>
           </CardHeader>
           <CardContent>
+            <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
+              {t('experience.highlights')}
+            </p>
             <ul className="space-y-2 list-disc list-inside text-sm">
               {item.highlights.map((highlight, i) => (
                 <li key={i}>{highlight}</li>

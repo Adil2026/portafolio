@@ -1,8 +1,7 @@
 /**
  * Spanish message dictionary.
  *
- * Placeholder copy only — real content lands in a later change
- * (TODO(content), constitution §5). Keys mirror `Languages` exactly.
+ * CV-backed content (constitution §5). Keys mirror `Dictionary` exactly.
  */
 import type { Messages } from './types'
 
@@ -11,21 +10,41 @@ export const messages: Messages = {
     home: 'Inicio',
   },
   hero: {
-    // TODO(content): replace placeholder headline with CV-backed copy
     title: 'Portafolio de Ingeniería de Datos',
-    subtitle: 'Introducción provisional — el contenido llega en un cambio posterior.',
+    subtitle: 'Ingeniero de Sistemas con 7+ años de experiencia en desarrollo de software, bases de datos y sistemas de información.',
     summary: 'Especialista en ingeniería de datos, analítica y software. Construyo pipelines robustos, dashboards accionables y sistemas mantenibles.',
     cta: 'Ver CV',
     viewWork: 'Ver Proyectos',
   },
   projects: {
     title: 'Proyectos',
+    problem: 'Problema u objetivo',
+    dataAndContext: 'Datos y contexto',
+    stack: 'Stack tecnológico',
+    role: 'Rol',
+    outcome: 'Resultado medible',
+    repo: 'Repositorio',
+    demo: 'Demo',
+    viewProject: 'Ver proyecto',
   },
   skills: {
     title: 'Habilidades',
+    category: 'Categoría',
+    level: 'Nivel',
+    dataEngineering: 'Ingeniería de Datos',
+    dataAnalytics: 'Analítica de Datos',
+    softwareEngineering: 'Ingeniería de Software',
+    beginner: 'Principiante',
+    intermediate: 'Intermedio',
+    advanced: 'Avanzado',
+    expert: 'Experto',
   },
   experience: {
     title: 'Experiencia',
+    role: 'Cargo',
+    company: 'Empresa',
+    period: 'Período',
+    highlights: 'Logros destacados',
   },
   footer: {
     rightsReserved: 'Todos los derechos reservados.',

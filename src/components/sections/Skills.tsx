@@ -4,13 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '../ui/Card';
 import { Heading } from '../ui/Heading';
 import { skills } from '../../data/skills';
 import { useI18n } from '../../lib/i18n/LanguageContext';
-import type { Skill, SkillCategory } from '../../types/content';
-
-const CATEGORY_LABELS: Record<SkillCategory, { es: string; en: string }> = {
-  'data-engineering': { es: 'Ingeniería de Datos', en: 'Data Engineering' },
-  'data-analytics': { es: 'Analítica de Datos', en: 'Data Analytics' },
-  'software-engineering': { es: 'Ingeniería de Software', en: 'Software Engineering' },
-};
+import type { Skill, SkillCategory, SkillLevel } from '../../types/content';
 
 const CATEGORY_ORDER: SkillCategory[] = [
   'data-engineering',
@@ -18,27 +12,21 @@ const CATEGORY_ORDER: SkillCategory[] = [
   'software-engineering',
 ];
 
-const LEVEL_STYLES: Record<Skill['level'], string> = {
+const LEVEL_STYLES: Record<SkillLevel, string> = {
   beginner: 'bg-muted text-muted-foreground',
   intermediate: 'bg-secondary text-secondary-foreground',
   advanced: 'bg-accent text-accent-foreground',
   expert: 'bg-primary text-primary-foreground',
 };
 
-const LEVEL_LABELS: Record<Skill['level'], { es: string; en: string }> = {
-  beginner: { es: 'Principiante', en: 'Beginner' },
-  intermediate: { es: 'Intermedio', en: 'Intermediate' },
-  advanced: { es: 'Avanzado', en: 'Advanced' },
-  expert: { es: 'Experto', en: 'Expert' },
-};
-
 /**
  * Skill badge component — inline level indicator.
  */
-function SkillBadge({ skill, lang }: { skill: Skill; lang: 'es' | 'en' }) {
+function SkillBadge({ skill }: { skill: Skill }) {
+  const { t } = useI18n();
   return (
     <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${LEVEL_STYLES[skill.level]}`}>
-      {LEVEL_LABELS[skill.level][lang]}
+      {t(`skills.${skill.level}`)}
     </span>
   );
 }
@@ -46,18 +34,24 @@ function SkillBadge({ skill, lang }: { skill: Skill; lang: 'es' | 'en' }) {
 /**
  * Category card — groups skills by category.
  */
-function CategoryCard({ category, skills: categorySkills, lang }: { category: SkillCategory; skills: Skill[]; lang: 'es' | 'en' }) {
+function CategoryCard({ category, skills: categorySkills }: { category: SkillCategory; skills: Skill[] }) {
+  const { t } = useI18n();
+  const categoryKeyMap: Record<SkillCategory, 'dataEngineering' | 'dataAnalytics' | 'softwareEngineering'> = {
+    'data-engineering': 'dataEngineering',
+    'data-analytics': 'dataAnalytics',
+    'software-engineering': 'softwareEngineering',
+  };
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-lg">{CATEGORY_LABELS[category][lang]}</CardTitle>
+        <CardTitle className="text-lg">{t(`skills.${categoryKeyMap[category]}`)}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
         <div className="flex flex-wrap gap-2">
           {categorySkills.map((skill, i) => (
             <div key={skill.slug ?? i} className="flex items-center gap-2">
               <span className="font-medium text-sm">{skill.name}</span>
-              <SkillBadge skill={skill} lang={lang} />
+              <SkillBadge skill={skill} />
             </div>
           ))}
         </div>
@@ -106,7 +100,6 @@ export function Skills() {
                   key={category}
                   category={category}
                   skills={categorySkills}
-                  lang={currentLang}
                 />
               );
             })}

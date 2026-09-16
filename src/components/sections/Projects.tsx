@@ -15,6 +15,8 @@ interface ProjectCardProps {
  * Individual project card — composed from Card primitive.
  */
 function ProjectCard({ project }: ProjectCardProps) {
+  const { t } = useI18n();
+
   return (
     <Card>
       <CardHeader>
@@ -25,26 +27,31 @@ function ProjectCard({ project }: ProjectCardProps) {
       </CardHeader>
       <CardContent className="space-y-3">
         {project.stack.length > 0 && (
-          <div className="flex flex-wrap gap-1.5">
-            {project.stack.map((tech, i) => (
-              <span
-                key={i}
-                className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground"
-              >
-                {tech}
-              </span>
-            ))}
+          <div className="space-y-2">
+            <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              {t('projects.stack')}
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {project.stack.map((tech, i) => (
+                <span
+                  key={i}
+                  className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         )}
         <div>
           <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">
-            Role
+            {t('projects.role')}
           </p>
           <p className="text-sm">{project.role}</p>
         </div>
         <div>
           <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">
-            Outcome
+            {t('projects.outcome')}
           </p>
           <p className="text-sm font-medium text-primary">{project.outcome}</p>
         </div>
@@ -59,7 +66,7 @@ function ProjectCard({ project }: ProjectCardProps) {
               underline="hover"
               className="text-sm font-medium"
             >
-              Repo
+              {t('projects.repo')}
             </Link>
           )}
           {project.demoUrl && (
@@ -70,7 +77,7 @@ function ProjectCard({ project }: ProjectCardProps) {
               underline="hover"
               className="text-sm font-medium"
             >
-              Demo
+              {t('projects.demo')}
             </Link>
           )}
         </CardFooter>

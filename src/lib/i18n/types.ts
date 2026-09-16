@@ -34,12 +34,33 @@ export type Dictionary = {
   }
   projects: {
     title: string
+    problem: string
+    dataAndContext: string
+    stack: string
+    role: string
+    outcome: string
+    repo: string
+    demo: string
+    viewProject: string
   }
   skills: {
     title: string
+    category: string
+    level: string
+    dataEngineering: string
+    dataAnalytics: string
+    softwareEngineering: string
+    beginner: string
+    intermediate: string
+    advanced: string
+    expert: string
   }
   experience: {
     title: string
+    role: string
+    company: string
+    period: string
+    highlights: string
   }
   footer: {
     rightsReserved: string
